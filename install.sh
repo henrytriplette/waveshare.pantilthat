@@ -1,6 +1,6 @@
 #!/bin/bash
 
-ver="0.8"
+ver="0.81"
 
 INSTALL_DIR='waveshare'  # Default folder install location
 
@@ -31,12 +31,12 @@ else
 fi
 
 for fname in "${installFiles[@]}" ; do
-    wget_output=$(wget -O $fname -q --show-progress https://raw.githubusercontent.com/pageauc/waveshare.pantilthat/main/$fname)
+    wget_output=$(wget -O $fname -q --show-progress https://raw.githubusercontent.com/henrytriplette/waveshare.pantilthat/main/$fname)
     if [ $? -ne 0 ]; then
         if [ $? -ne 0 ]; then
             echo "ERROR - $fname wget Download Failed. Possible Cause Internet Problem."
         else
-            wget -O $fname https://raw.githubusercontent.com/pageauc/waveshare.pantilthat/main/$fname
+            wget -O $fname https://raw.githubusercontent.com/henrytriplette/waveshare.pantilthat/main/$fname
         fi
     fi
 done
@@ -44,21 +44,21 @@ done
 chmod +x *py
 
 # create python library module folders for python2 and python3
-sudo mkdir -p /usr/local/lib/python2.7/dist-packages/waveshare
-sudo cp pantilthat.py /usr/local/lib/python2.7/dist-packages/waveshare
-sudo touch /usr/local/lib/python2.7/dist-packages/waveshare/__init__.py
-sudo mkdir -p /usr/local/lib/python3.7/dist-packages/waveshare
-sudo cp pantilthat.py /usr/local/lib/python3.7/dist-packages/waveshare
-sudo touch /usr/local/lib/python3.7/dist-packages/waveshare/__init__.py
+# sudo mkdir -p /usr/local/lib/python2.7/dist-packages/waveshare
+# sudo cp pantilthat.py /usr/local/lib/python2.7/dist-packages/waveshare
+# sudo touch /usr/local/lib/python2.7/dist-packages/waveshare/__init__.py
+sudo mkdir -p /usr/local/lib/python3.9/dist-packages/waveshare
+sudo cp pantilthat.py /usr/local/lib/python3.9/dist-packages/waveshare
+sudo touch /usr/local/lib/python3.9/dist-packages/waveshare/__init__.py
 rm pantilthat.py
 
 echo "$STATUS Install Dependencies"
 sudo apt-get -yq install python-rpi.gpio
-sudo apt-get -yq install python3-rpi.gpio
+# sudo apt-get -yq install python3-rpi.gpio
 sudo apt-get -yq install python-picamera
-sudo apt-get -yq install python3-picamera
+# sudo apt-get -yq install python3-picamera
 
-bcm_ver='68'
+bcm_ver='71'
 cd ~
 echo "$0 Install bcm2835-1.$bcm_ver  Please wait ..."
 echo "$0 Downloading http://www.airspayce.com/mikem/bcm2835/bcm2835-1.$bcm_ver.tar.gz"

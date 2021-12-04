@@ -2,22 +2,22 @@
 
 cd ~
 echo "Installing Waveshare python libraries and PWM driver"
-wget -O pantilthat.py https://raw.githubusercontent.com/pageauc/waveshare.pantilthat/main/pantilthat.py
+wget -O pantilthat.py https://raw.githubusercontent.com/henrytriplette/waveshare.pantilthat/main/pantilthat.py
 
 # create python library module folders for python2 and python3
-sudo mkdir -p /usr/local/lib/python2.7/dist-packages/waveshare
-sudo cp pantilthat.py /usr/local/lib/python2.7/dist-packages/waveshare
-sudo touch /usr/local/lib/python2.7/dist-packages/waveshare/__init__.py
-sudo mkdir -p /usr/local/lib/python3.7/dist-packages/waveshare
-sudo cp pantilthat.py /usr/local/lib/python3.7/dist-packages/waveshare
-sudo touch /usr/local/lib/python3.7/dist-packages/waveshare/__init__.py
+# sudo mkdir -p /usr/local/lib/python2.7/dist-packages/waveshare
+# sudo cp pantilthat.py /usr/local/lib/python2.7/dist-packages/waveshare
+# sudo touch /usr/local/lib/python2.7/dist-packages/waveshare/__init__.py
+sudo mkdir -p /usr/local/lib/python3.9/dist-packages/waveshare
+sudo cp pantilthat.py /usr/local/lib/python3.9/dist-packages/waveshare
+sudo touch /usr/local/lib/python3.9/dist-packages/waveshare/__init__.py
 rm pantilthat.py
 
 echo "Install Python 2 and 3 Dependencies"
 sudo apt-get -yq install python-rpi.gpio
-sudo apt-get -yq install python3-rpi.gpio
+# sudo apt-get -yq install python3-rpi.gpio
 
-bcm_ver='68'
+bcm_ver='71'
 echo "$0 Install bcm2835-1.$bcm_ver  Please wait ..."
 echo "$0 Downloading http://www.airspayce.com/mikem/bcm2835/bcm2835-1.$bcm_ver.tar.gz"
 wget http://www.airspayce.com/mikem/bcm2835/bcm2835-1.$bcm_ver.tar.gz
@@ -56,7 +56,7 @@ Valid pan and tilt values are between -90 to +90 degrees
     import RPi.GPIO as GPIO
     from waveshare.pantilthat import PanTilt
     pantilthat = PanTilt()
-    
+
     pantilthat.pan(0)
     pantilthat.tilt(0)
     time.sleep(0.1)
