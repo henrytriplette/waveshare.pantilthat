@@ -8,9 +8,9 @@ wget -O pantilthat.py https://raw.githubusercontent.com/henrytriplette/waveshare
 # sudo mkdir -p /usr/local/lib/python2.7/dist-packages/waveshare
 # sudo cp pantilthat.py /usr/local/lib/python2.7/dist-packages/waveshare
 # sudo touch /usr/local/lib/python2.7/dist-packages/waveshare/__init__.py
-sudo mkdir -p /usr/local/lib/python3/dist-packages/waveshare
-sudo cp pantilthat.py /usr/local/lib/python3/dist-packages/waveshare
-sudo touch /usr/local/lib/python3/dist-packages/waveshare/__init__.py
+sudo mkdir -p /usr/lib/python3/dist-packages/waveshare
+sudo cp pantilthat.py /usr/lib/python3/dist-packages/waveshare
+sudo touch /usr/lib/python3/dist-packages/waveshare/__init__.py
 rm pantilthat.py
 
 echo "Install Python 2 and 3 Dependencies"
