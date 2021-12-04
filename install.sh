@@ -44,14 +44,18 @@ done
 chmod +x *py
 
 # create python library module folders for python3
-sudo mkdir -p /usr/lib/python3/dist-packages/waveshare
-sudo cp pantilthat.py /usr/lib/python3/dist-packages/waveshare
-sudo touch /usr/lib/python3/dist-packages/waveshare/__init__.py
+sudo mkdir -p /usr/local/lib/python3.9/dist-packages/waveshare
+sudo cp pantilthat.py /usr/local/lib/python3.9/dist-packages/waveshare
+sudo touch /usr/local/lib/python3.9/dist-packages/waveshare/__init__.py
 rm pantilthat.py
 
 echo "$STATUS Install Dependencies"
+sudo apt-get -yq install python3 python3-venv python3-dev python3-pip
+pip install RPi.GPIO smbus
 sudo apt-get -yq install python-rpi.gpio
+sudo apt-get -yq install python3-rpi.gpio
 sudo apt-get -yq install python-picamera
+sudo apt-get -yq install python3-picamera
 
 bcm_ver='71'
 cd ~

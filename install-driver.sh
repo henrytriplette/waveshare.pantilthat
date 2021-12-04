@@ -8,14 +8,14 @@ wget -O pantilthat.py https://raw.githubusercontent.com/henrytriplette/waveshare
 # sudo mkdir -p /usr/local/lib/python2.7/dist-packages/waveshare
 # sudo cp pantilthat.py /usr/local/lib/python2.7/dist-packages/waveshare
 # sudo touch /usr/local/lib/python2.7/dist-packages/waveshare/__init__.py
-sudo mkdir -p /usr/lib/python3/dist-packages/waveshare
-sudo cp pantilthat.py /usr/lib/python3/dist-packages/waveshare
-sudo touch /usr/lib/python3/dist-packages/waveshare/__init__.py
+sudo mkdir -p /usr/local/lib/python3.9/dist-packages/waveshare
+sudo cp pantilthat.py /usr/local/lib/python3.9/dist-packages/waveshare
+sudo touch /usr/local/lib/python3.9/dist-packages/waveshare/__init__.py
 rm pantilthat.py
 
-echo "Install Python 2 and 3 Dependencies"
+echo "Install Python Dependencies"
 sudo apt-get -yq install python3 python3-venv python3-dev python3-pip
-pip install RPi.GPIO
+pip install RPi.GPIO smbus
 sudo apt-get -yq install python-rpi.gpio
 sudo apt-get -yq install python3-rpi.gpio
 
